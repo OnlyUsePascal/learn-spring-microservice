@@ -1,9 +1,5 @@
 package com.example.api_gateway;
 
-import java.net.URI;
-import java.util.Collections;
-import java.util.Set;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;

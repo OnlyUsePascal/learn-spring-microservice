@@ -22,3 +22,8 @@ spring:
           uri: lb://serviceb
           predicates:
             - Path=//serviceb/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_SERVER_URI}
