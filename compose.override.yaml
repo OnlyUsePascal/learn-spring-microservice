@@ -1,0 +1,6 @@
+services:
+  service-user:
+    depends_on:
+      - eureka
+    environment:
+      - EUREKA_SERVER_URI=http://eureka:8761/eureka

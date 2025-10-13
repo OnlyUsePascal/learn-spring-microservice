@@ -1,3 +1,6 @@
+include:
+  - user/compose.yaml
+  
 services:
 #   config-server:
 #     build: ./config-server
