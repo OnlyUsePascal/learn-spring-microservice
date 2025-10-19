@@ -1,5 +1,5 @@
 services:
-  service-user:
+  user-service:
     depends_on:
       - eureka
     environment:
