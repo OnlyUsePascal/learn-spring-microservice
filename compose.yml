@@ -1,5 +1,6 @@
 include:
   - user/compose.yaml
+  - auth/compose.yaml
   
 services:
 #   config-server:
@@ -44,30 +45,30 @@ services:
     networks:
       - spring-net
 
-  servicea:
-    build: ./servicea
-    container_name: servicea
-    ports:
-      - "8081:8081"
-    depends_on:
-      - eureka
-    environment:
-      - EUREKA_SERVER_URI=http://eureka:8761/eureka
-    networks:
-      - spring-net
+  # servicea:
+  #   build: ./servicea
+  #   container_name: servicea
+  #   ports:
+  #     - "8081:8081"
+  #   depends_on:
+  #     - eureka
+  #   environment:
+  #     - EUREKA_SERVER_URI=http://eureka:8761/eureka
+  #   networks:
+  #     - spring-net
 
-  serviceb:
-    build: ./serviceb
-    container_name: serviceb
-    ports:
-      - "8082:8082"
-    depends_on:
-      - eureka
-      - servicea
-    environment:
-      - EUREKA_SERVER_URI=http://eureka:8761/eureka
-    networks:
-      - spring-net
+  # serviceb:
+  #   build: ./serviceb
+  #   container_name: serviceb
+  #   ports:
+  #     - "8082:8082"
+  #   depends_on:
+  #     - eureka
+  #     - servicea
+  #   environment:
+  #     - EUREKA_SERVER_URI=http://eureka:8761/eureka
+  #   networks:
+  #     - spring-net
 
 #   auth-service:
 #     build: ./auth-service
