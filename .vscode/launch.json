@@ -52,6 +52,26 @@
       "projectName": "user",
       "args": "",
       "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-Main<servicea-server>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.example.Main",
+      "projectName": "servicea-server",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-ServiceaApplication<servicea-server>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.example.servicea.server.ServiceaApplication",
+      "projectName": "servicea-server",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
     }
   ]
 }
