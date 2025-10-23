@@ -1,0 +1,3 @@
+[submodule "servicea"]
+	path = servicea
+	url = git@github.com:OnlyUsePascal/learn-spring-microservice-servicea.git
