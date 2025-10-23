@@ -9,7 +9,6 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.example</groupId>
     <artifactId>servicea-server</artifactId>
     <version>1.0-SNAPSHOT</version>
 
