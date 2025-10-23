@@ -1,7 +1,6 @@
 include:
   - user/compose.yaml
   - auth/compose.yaml
-  - servicea/compose.yml
   
 services:
 #   config-server:
@@ -45,6 +44,32 @@ services:
       - EUREKA_SERVER_URI=http://eureka:8761/eureka
     networks:
       - spring-net
+
+  servicea:
+    build: ./servicea
+    container_name: servicea
+    depends_on:
+      - eureka
+      - servicea-pg
+    ports:
+      - "8081:8080"
+    networks:
+      - spring-net
+    environment:
+      - EUREKA_SERVER_URI=http://eureka:8761/eureka
+
+  servicea-pg:
+    image: 'postgres:17'
+    container_name: 'servicea-pg'
+    ports:
+      - "5483:5432"
+    networks:
+      - spring-net
+    environment:
+      POSTGRES_DB: 'ead_db'
+      POSTGRES_USER: 'ead_user'
+      POSTGRES_PASSWORD: 'ead_pwd'
+
 
 #   auth-service:
 #     build: ./auth-service
