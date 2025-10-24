@@ -1,32 +1,32 @@
 include:
   - user/compose.yaml
   - auth/compose.yaml
-  
+
 services:
-#   config-server:
-#     build: ./config-server
-#     container_name: config-server
-#     ports:
-#       - "8888:8888"
-#     environment:
-#       - SPRING_PROFILES_ACTIVE=docker
-#     healthcheck:
-#       test: ["CMD", "curl", "-f", "http://localhost:8888/actuator/health"]
-#       interval: 10s
-#       timeout: 5s
-#       retries: 5
-#     networks:
-#       - spring-net
+  #   config-server:
+  #     build: ./config-server
+  #     container_name: config-server
+  #     ports:
+  #       - "8888:8888"
+  #     environment:
+  #       - SPRING_PROFILES_ACTIVE=docker
+  #     healthcheck:
+  #       test: ["CMD", "curl", "-f", "http://localhost:8888/actuator/health"]
+  #       interval: 10s
+  #       timeout: 5s
+  #       retries: 5
+  #     networks:
+  #       - spring-net
 
   eureka:
     build: ./eureka
     container_name: eureka
     ports:
       - "8761:8761"
-    # depends_on:
-    #   config-server:
-    #     condition: service_healthy
-    # environment:
+      # depends_on:
+      #   config-server:
+      #     condition: service_healthy
+      # environment:
       # - SPRING_CONFIG_IMPORT=optional:configserver:http://config-server:8888
       # - SPRING_PROFILES_ACTIVE=docker
     networks:
@@ -71,7 +71,7 @@ services:
       POSTGRES_PASSWORD: 'ead_pwd'
 
   serviceb:
-    build: 
+    build:
       context: ./serviceb
       secrets:
         - github-username
@@ -106,6 +106,6 @@ networks:
 
 secrets:
   github-username:
-    environment: ${GITHUB_USERNAME}
+    environment: GITHUB_USERNAME
   github-token:
-    environment: ${GITHUB_TOKEN}
+    environment: GITHUB_TOKEN
