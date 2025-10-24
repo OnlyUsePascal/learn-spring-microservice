@@ -71,7 +71,11 @@ services:
       POSTGRES_PASSWORD: 'ead_pwd'
 
   serviceb:
-    build: ./serviceb
+    build: 
+      context: ./serviceb
+      secrets:
+        - github-username
+        - github-token
     container_name: serviceb
     depends_on:
       - eureka
@@ -99,3 +103,9 @@ services:
 networks:
   spring-net:
     driver: bridge
+
+secrets:
+  github-username:
+    environment: ${GITHUB_USERNAME}
+  github-token:
+    environment: ${GITHUB_TOKEN}
