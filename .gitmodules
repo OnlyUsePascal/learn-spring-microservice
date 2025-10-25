@@ -1,3 +1,6 @@
 [submodule "servicea"]
 	path = servicea
 	url = git@github.com:OnlyUsePascal/learn-spring-microservice-servicea.git
+[submodule "serviceb"]
+	path = serviceb
+	url = git@github.com:OnlyUsePascal/learn-spring-microservice-serviceb.git
