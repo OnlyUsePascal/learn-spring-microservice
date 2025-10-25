@@ -46,7 +46,11 @@ services:
       - spring-net
 
   servicea:
-    build: ./servicea
+    build:
+      context: ./servicea
+      secrets:
+        - github-username
+        - github-token
     container_name: servicea
     depends_on:
       - eureka
