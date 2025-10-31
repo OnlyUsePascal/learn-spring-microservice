@@ -4,3 +4,6 @@
 [submodule "serviceb"]
 	path = serviceb
 	url = git@github.com:OnlyUsePascal/learn-spring-microservice-serviceb.git
+[submodule "user"]
+	path = user
+	url = git@github.com:OnlyUsePascal/learn-spring-microservice-user.git
