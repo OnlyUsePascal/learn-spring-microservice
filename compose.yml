@@ -1,5 +1,4 @@
 include:
-  - user/compose.yaml
   - auth/compose.yaml
 
 services:
@@ -66,7 +65,7 @@ services:
     image: 'postgres:17'
     container_name: 'servicea-pg'
     ports:
-      - "5483:5432"
+      - "5433:5432"
     networks:
       - spring-net
     environment:
@@ -89,6 +88,36 @@ services:
       - spring-net
     environment:
       - EUREKA_SERVER_URI=http://eureka:8761/eureka
+
+  user:
+    build:
+      context: ./user
+      secrets:
+        - github-username
+        - github-token
+    container_name: user
+    depends_on:
+      - eureka
+      - user-pg
+    ports:
+      - "8083:8080"
+    networks:
+      - spring-net
+    environment:
+      - EUREKA_SERVER_URI=http://eureka:8761/eureka
+      - POSTGRES_URI=jdbc:postgresql://user-pg:5432/ead_db?user=ead_user&password=ead_pwd
+
+  user-pg:
+    image: 'postgres:17'
+    container_name: user-pg
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_DB: 'ead_db'
+      POSTGRES_USER: 'ead_user'
+      POSTGRES_PASSWORD: 'ead_pwd'
+    networks:
+      - spring-net
 
 #   auth-service:
 #     build: ./auth-service
